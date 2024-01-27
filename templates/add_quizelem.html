@@ -1,0 +1,15 @@
+{% extends "baseQ.html" %}
+{% block content %}
+<div class="container text-center">
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.question(class="form-control mt-2", placeholder=form.question.label.text) }}
+        {{ form.qans(class="form-control mt-2", placeholder=form.qans.label.text) }}
+        {{ form.in1(class="form-control mt-2", placeholder=form.in1.label.text) }}
+        {{ form.in2(class="form-control mt-2", placeholder=form.in2.label.text) }}
+        {{ form.in3(class="form-control mt-2", placeholder=form.in3.label.text) }}
+        {{ form.submit(class="btn btn-success mt-2") }}
+    </form>
+    <a href="/" class="btn btn-success">დასრულება</a>
+</div>
+{% endblock %}

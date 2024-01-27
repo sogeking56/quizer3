@@ -1,0 +1,12 @@
+{% extends "baseQ.html" %}
+{% block content %}
+<div class="container text-center">
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.title(class="form-control mt-2", placeholder=form.title.label.text) }}
+        {{ form.img(class="form-control mt-2", placeholder=form.img.label.text) }}
+        {{ form.category(class="form-control mt-2") }}
+        {{ form.submit(class="btn btn-success mt-2") }}
+    </form>
+</div>
+{% endblock %}

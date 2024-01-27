@@ -1,0 +1,9 @@
+{% extends "baseQ.html" %}
+{% block content %}
+{% for qelme in quiz_elem %}
+    {{qelme.question}}
+<div class="container text-center">
+    <a href="/edit_qelem/{{qelme.quiz_id}}/{{qelme.id}}" class="btn btn-warning">edit</a>
+</div>
+{% endfor %}
+{% endblock %}

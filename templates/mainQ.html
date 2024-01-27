@@ -1,0 +1,44 @@
+{% extends "baseQ.html" %}
+{% block content %}
+<div class="container text-center">
+    {% if exist %}
+    <div class="row align-items-center my-3 mx-3 bs-success-border-subtle">
+        <h1>რეკომენდაციები</h1>
+        {% for quiz in quizzes2 %}
+        <div class="col my-3">
+            <div class="card" style="width: 18rem;">
+                <img src="/static/{{ quiz.img }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ quiz.title }}</h5>
+                    <a href="/start_quiz/{{quiz.id}}" class="btn btn-success">დაწყება</a>
+                    {% if current_user.role == "admin" %}
+                    <a href="/delete/{{quiz.id}}" class="btn btn-danger">delete</a>
+                    <a href="/edit_main/{{quiz.id}}" class="btn btn-warning">edit quiz</a>
+                    <a href="/edit_page/{{quiz.id}}" class="btn btn-warning">edit quiz elements</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="row align-items-center mx-3">
+        {% for quiz in quizzes %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="/static/{{ quiz.img }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ quiz.title }}</h5>
+                    <a href="/start_quiz/{{quiz.id}}" class="btn btn-success">დაწყება</a>
+                    {% if current_user.role == "admin" %}
+                    <a href="/delete/{{quiz.id}}" class="btn btn-danger">delete</a>
+                    <a href="/edit_main/{{quiz.id}}" class="btn btn-warning">edit quiz</a>
+                    <a href="/edit_page/{{quiz.id}}" class="btn btn-warning">edit quiz elements</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
